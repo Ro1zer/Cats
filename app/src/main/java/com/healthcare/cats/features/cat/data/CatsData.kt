@@ -1,6 +1,6 @@
-package com.healtcare.cats.features.cat.data
+package com.healthcare.cats.features.cat.data
 
-import com.healtcare.cats.features.cat.presentation.CatUiState
+import com.healthcare.cats.features.cat.presentation.CatUiState
 
 val catUiStates = listOf(
     CatUiState("John", "The cat is staring blankly at the wall, questioning all of its life choices."),

@@ -1,4 +1,4 @@
-package com.healtcare.cats.features.cat.presentation
+package com.healthcare.cats.features.cat.presentation
 
 //TODO: Think about adding some additional fields
 data class CatUiState(

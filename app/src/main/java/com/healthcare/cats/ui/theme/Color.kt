@@ -1,4 +1,4 @@
-package com.healtcare.cats.ui.theme
+package com.healthcare.cats.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

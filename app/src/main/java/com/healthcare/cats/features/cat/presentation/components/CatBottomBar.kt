@@ -1,4 +1,4 @@
-package com.healtcare.cats.features.cat.presentation.components
+package com.healthcare.cats.features.cat.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -15,7 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.healtcare.cats.R
+import com.healthcare.cats.R
 
 @Composable
 fun CatBottomBar(

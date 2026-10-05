@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.healtcare.cats"
+    namespace = "com.healthcare.cats"
     compileSdk {
         version = release(37)
     }

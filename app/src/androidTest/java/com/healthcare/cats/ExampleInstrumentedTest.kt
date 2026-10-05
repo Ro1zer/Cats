@@ -1,4 +1,4 @@
-package com.healtcare.cats
+package com.healthcare.cats
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

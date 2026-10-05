@@ -1,4 +1,4 @@
-package com.healtcare.cats
+package com.healthcare.cats
 
 import org.junit.Test
 

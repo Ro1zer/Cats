@@ -1,6 +1,5 @@
-package com.healtcare.cats.ui.theme
+package com.healthcare.cats.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

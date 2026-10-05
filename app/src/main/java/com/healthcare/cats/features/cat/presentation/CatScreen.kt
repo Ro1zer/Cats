@@ -1,4 +1,4 @@
-package com.healtcare.cats.features.cat.presentation
+package com.healthcare.cats.features.cat.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -23,10 +23,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.healtcare.cats.R
-import com.healtcare.cats.features.cat.presentation.components.CatBottomBar
-import com.healtcare.cats.features.cat.presentation.components.CatCentreAlignTopAppBar
-import com.healtcare.cats.ui.theme.CatsTheme
+import com.healthcare.cats.R
+import com.healthcare.cats.features.cat.presentation.components.CatBottomBar
+import com.healthcare.cats.features.cat.presentation.components.CatCentreAlignTopAppBar
+import com.healthcare.cats.ui.theme.CatsTheme
 
 @Composable
 fun CatScreen(
