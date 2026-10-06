@@ -6,7 +6,7 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
-kotlin = "2.2.10"
+kotlin = "2.4.10"
 composeBom = "2026.02.01"
 lifecycleViewmodelCompose = "2.11.0"
 uiTextGoogleFonts = "1.12.1"
@@ -15,7 +15,7 @@ retrofit = "3.0.0"
 converterMoshi = "3.0.0"
 okhttp = "4.12.0"
 loggingInterceptor = "4.12.0"
-coilCompose = "3.2.0"
+coilCompose = "3.6.3"
 coilNetworkOkhttp = "3.6.3"
 
 [libraries]
@@ -40,7 +40,7 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "converterMoshi" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
-coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coilNetworkOkhttp" }
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coilCompose" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coilNetworkOkhttp" }
 
 [plugins]

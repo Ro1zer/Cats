@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.healthcare.cats.R
+import com.healthcare.cats.features.cat.domain.model.CatModel
 import com.healthcare.cats.features.cat.presentation.components.CatBottomBar
 import com.healthcare.cats.features.cat.presentation.components.CatCentreAlignTopAppBar
 import com.healthcare.cats.ui.theme.CatsTheme
@@ -50,7 +51,7 @@ fun CatScreen(
         }
     ) { innerPadding ->
         CatScreenContent(
-            cat = uiState,
+            cat = uiState.currentCat,
             modifier = Modifier.padding(innerPadding)
         )
     }
@@ -59,7 +60,7 @@ fun CatScreen(
 
 @Composable
 fun CatScreenContent(
-    cat: CatUiState,
+    cat: CatModel?,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -83,12 +84,12 @@ fun CatScreenContent(
                 )
             }
             Text(
-                text = cat.name,
+                text = cat?.name ?: "",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.W500
             )
             Text(
-                text = cat.description,
+                text = cat?.description ?: "",
                 style = MaterialTheme.typography.bodyLarge
             )
         }
@@ -100,7 +101,7 @@ fun CatScreenContent(
 fun CatScreenPreview() {
     CatsTheme {
         CatScreenContent(
-            cat = CatUiState("Barsik", "Have a grea mood!")
+            cat = CatModel("1", "Barsik", "", "Have a great mood!")
         )
     }
 }
