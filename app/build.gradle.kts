@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -17,6 +20,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val properties = Properties()
+        val localPropertiesFiles = rootProject.file("local.properties")
+        if (localPropertiesFiles.exists())
+            properties.load(FileInputStream(localPropertiesFiles))
+        val catsKey = properties.getProperty("CATS_API_KEY") ?: ""
+        buildConfigField("String", "CATS_API_KEY", "\"$catsKey\"")
     }
 
     buildTypes {
@@ -33,6 +43,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
