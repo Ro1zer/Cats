@@ -1,4 +1,3 @@
-import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
@@ -21,12 +20,17 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        val properties = Properties()
-        val localPropertiesFiles = rootProject.file("local.properties")
-        if (localPropertiesFiles.exists())
-            properties.load(FileInputStream(localPropertiesFiles))
-        val catsKey = properties.getProperty("CATS_API_KEY") ?: ""
-        buildConfigField("String", "CATS_API_KEY", "\"$catsKey\"")
+        val localProperties = Properties().apply {
+            val localPropertiesFiles = rootProject.file("local.properties")
+            if (localPropertiesFiles.exists()) {
+                load(localPropertiesFiles.inputStream())
+            }
+        }
+
+        val apiKey = localProperties.getProperty("CAT_API_KEY")
+            ?: throw GradleException("CAT_API_KEY not found in local.properties")
+
+        buildConfigField("String", "CAT_API_KEY", "\"${apiKey}\"")
     }
 
     buildTypes {
@@ -63,6 +67,8 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.converter.moshi)
     implementation(libs.logging.interceptor)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
     implementation(libs.okhttp)
     implementation(libs.retrofit)
     testImplementation(libs.junit)
