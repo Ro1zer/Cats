@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
-    const val BASE_URL = "https://api.thecatapi.com/v1"
+    const val BASE_URL = "https://api.thecatapi.com/v1/"
     val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     val headerInterceptor = Interceptor { chain ->
         val request = chain.request().newBuilder()
