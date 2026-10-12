@@ -1,13 +1,14 @@
 package com.healthcare.cats.features.cat.presentation
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -17,13 +18,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.healthcare.cats.R
+import coil3.compose.SubcomposeAsyncImage
 import com.healthcare.cats.features.cat.presentation.components.CatBottomBar
 import com.healthcare.cats.features.cat.presentation.components.CatCentreAlignTopAppBar
 import com.healthcare.cats.ui.theme.CatsTheme
@@ -65,32 +66,46 @@ fun CatScreenContent(
     Surface(
         modifier = modifier.fillMaxSize()
     ) {
-        Column(
+        LazyColumn(
             modifier = Modifier.padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(18.dp)
+            verticalArrangement = Arrangement.spacedBy(18.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Card(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 6.dp
-                )
-            ) {
-                Image(
-                    modifier = Modifier.size(300.dp),
-                    painter = painterResource(R.drawable.cat_1),
-                    contentDescription = "Image with cat",
-                    contentScale = ContentScale.Crop
+            item {
+                Card(
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 6.dp
+                    )
+                ) {
+                    SubcomposeAsyncImage(
+                        modifier = Modifier.size(300.dp),
+                        model = cat.imageUrl,
+                        contentDescription = null,
+                        loading = {
+                            CircularProgressIndicator()
+                        },
+                        contentScale = ContentScale.Crop
+                    )
+                }
+            }
+            item {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = cat.name,
+                    textAlign = TextAlign.Start,
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.W500
                 )
             }
-            Text(
-                text = cat.name,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.W500
-            )
-            Text(
-                text = cat.description,
-                style = MaterialTheme.typography.bodyLarge
-            )
+            item {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = cat.description,
+                    textAlign = TextAlign.Start,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+
+            }
         }
     }
 }

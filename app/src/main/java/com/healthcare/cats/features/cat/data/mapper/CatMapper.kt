@@ -7,6 +7,6 @@ fun CatDto.toCatUiState(): CatUiState {
     return CatUiState(
         name = this.name ?: "NONE",
         description = this.description ?: "NONE",
-        imageUrl = this.image?.url ?: "NONE"
+        imageUrl = this.image?.url
     )
 }
